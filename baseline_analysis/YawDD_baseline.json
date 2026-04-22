@@ -1,0 +1,38 @@
+{
+  "total_videos": 49,
+  "total_analyzed_frames": 5650,
+  "total_drowsy_frames": 25,
+  "total_eyes_detected": 2952,
+  "by_condition": {
+    "Normal": {
+      "num_videos": 13,
+      "analyzed_frames": 804,
+      "drowsy_frames": 2,
+      "drowsiness_rate": 0.25,
+      "eye_detection_rate": 38.43
+    },
+    "Talking": {
+      "num_videos": 11,
+      "analyzed_frames": 995,
+      "drowsy_frames": 4,
+      "drowsiness_rate": 0.4,
+      "eye_detection_rate": 42.51
+    },
+    "Yawning": {
+      "num_videos": 11,
+      "analyzed_frames": 639,
+      "drowsy_frames": 0,
+      "drowsiness_rate": 0.0,
+      "eye_detection_rate": 31.92
+    },
+    "Unknown": {
+      "num_videos": 14,
+      "analyzed_frames": 3212,
+      "drowsy_frames": 19,
+      "drowsiness_rate": 0.59,
+      "eye_detection_rate": 62.76
+    }
+  },
+  "overall_drowsiness_rate": 0.44,
+  "overall_eye_detection_rate": 52.25
+}

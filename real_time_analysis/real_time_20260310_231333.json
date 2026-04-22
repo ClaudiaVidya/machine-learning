@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-03-10T23:13:33.487446",
+  "current": {
+    "frame_count": 1531,
+    "drowsy_rate": 58.65447419986937,
+    "eye_detection_rate": 58.915741345525795,
+    "face_detection_rate": 62.57348138471587,
+    "alert_level": "NORMAL",
+    "baseline_drowsy": 0.44,
+    "baseline_eye_detection": 52.25
+  },
+  "baseline": {
+    "drowsy_rate": 0.44,
+    "eye_detection_rate": 52.25
+  },
+  "difference": {
+    "drowsy_rate": 58.21447419986937,
+    "eye_detection_rate": 6.665741345525795
+  },
+  "assessment": [
+    "\u2717 Eye detection: POOR (check lighting/positioning)",
+    "\u2713 Drowsiness: DETECTABLE (high sensitivity)",
+    "\u26a0 Baseline comparison: SIGNIFICANT GAP"
+  ]
+}
