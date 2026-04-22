@@ -285,6 +285,7 @@ def run_real_time_detection_cnn():
     
     print(f"🧠 Detection Method: {detector.detection_method}")
     print(f"📊 Baseline Drowsy Rate: {detector.baseline['overall_drowsiness_rate']:.2f}%")
+    print("⚡ Performance mode: inferensi setiap 2 frame")
     print()
     
     # Camera
@@ -301,6 +302,10 @@ def run_real_time_detection_cnn():
     print("Press 'q' to quit")
     print()
     
+    # Run inference every N frames to reduce CPU load.
+    inference_interval = 2
+    last_detection = (False, 0, 0, 0)
+
     start_time = time.time()
     
     try:
@@ -309,12 +314,15 @@ def run_real_time_detection_cnn():
             if not ret:
                 break
             
-            # Detect
-            is_drowsy, face_count, eyes_count, eye_rate = detector.detect_drowsiness(frame)
+            # Detect with frame skipping for better FPS on CPU.
+            if detector.frame_count % inference_interval == 0:
+                last_detection = detector.detect_drowsiness(frame)
+
+            is_drowsy, face_count, eyes_count, eye_rate = last_detection
             avg_drowsy_rate, avg_eye_detection = detector.update_metrics(is_drowsy, eye_rate)
             
-            # Display
-            display_frame = cv2.resize(frame, (1280, 720))
+            # Keep native frame size to avoid extra resize overhead.
+            display_frame = frame
             
             # Draw metrics
             h, w = display_frame.shape[:2]
